@@ -1,0 +1,5 @@
+name: 'Giphy Formatter'
+type: module
+description: 'Giphy field formatter'
+core: 8.x
+package: 'Custom'

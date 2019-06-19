@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains drupaltest.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupaltest_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drupaltest module.
+    case 'help.page.drupaltest':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function drupaltest_theme() {
+  return [
+    'drupaltest' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/** 
+ * Hook_node_view
+ */
+function drupaltest_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+   $build['body'][0]['#text'] = 'test by ajay'; 
+}
